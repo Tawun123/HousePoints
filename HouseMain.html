@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House Points Page</title>
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="HouseStyle.css" />
+  </head>
+
+  
+  <div class="popupbackground" id="popupbackground">
+  </div>
+  <div class="popup" id="popup">
+    <h2>Enter Reasoning</p>
+      <input id="subject" class="input" autofocus placeholder="Subject" style="width:310px; margin:5px; border-radius:5px; margin-left:11%">
+      <textarea name="text" rows="14" cols="10" wrap="soft" autofocus placeholder=" Enter Remark" id="Remark"> </textarea>
+      <br>
+    <button class="submit2" id="submit2">Submit</button>
+  </div>
+
+
+
+  <body onload="pageLoad()"> 
+
+
+    <header>
+      <a href="https://vidyavalley.com" style="color: white">
+      <h1>Vidya Valley</h1>
+      </a>
+      <div class="logbuton">
+        <a href="login.html">
+        <button id="loginbtn" style="width: 45px; height: 45px; border-radius:20px"    class="logbtn">
+            <img style="width: 45px; height: 43px; border-radius:20px" src="loginimg.png">
+        </button>
+        </a>
+      </div>
+    </header>
+    
+    <form class="housepointform"> 
+    <div class="wrapper"> 
+
+
+        <div class="box-1"> 
+          <div class="container1">
+            <img src="Cheetah.png" style="width:77%; height:65%; padding-left: 8vmin;">
+            <p id="pc"></p>
+            <label id="labelc" class="num num1" data-val="400">0</label>
+            <label class="text">Cheetah</label>
+          </div>
+          <input type="number" style="width: 100%" autofocus placeholder=" Input points " id="inputc" class="input">
+          <button class="btn" onclick="addc()" id="AddC">Add</button>
+          <button class="btn" onclick="subc()">Subtract</button>
+        </div>   
+
+
+
+      <div class="box-2">
+        <div class="container2">
+          <img src="Jaguar.png" style="width:77%; height:65%; padding-left: 8vmin;">
+          <p id="pj"></p>
+          <label id="labelj" class="num" data-val="340">0</label>
+          <label class="text">Jaguar</label>
+        </div>
+        <input type="number" style="width: 100%" autofocus placeholder=" Input points " id="inputj" class="input">
+        <button class="btn" onclick="addj()">Add</button><button class="btn" onclick="subj()">Subtract</button>
+      </div>
+
+    
+       
+     
+      
+
+
+      <div class="box-3">
+      <div class="container4">
+        <img src="Puma.png" style="width:77%; height:65%; padding-left: 8vmin;">
+        <p id="pp"></p>
+        <label id="labelp" class="num" data-val="225">0</label>
+        <label class="text">Puma</label>
+      </div>
+      <input type="number" style="width: 100%" autofocus placeholder=" Input points " id="inputp" class="input">
+      <button class="btn" onclick="addp()">Add</button><button class="btn" onclick="subp()">Subtract</button>
+    </div>
+      
+
+    
+      <div class="box-4">
+      <div class="container3">
+        <img src="Sher.png" style="width:77%; height:65%; padding-left: 8vmin;">
+        <p id="ps"></p>
+        <label id="labels" class="num" data-val="280">0</label>
+        <label class="text" id="sher">Sher</label>
+      </div>
+      <input type="number" style="width: 100%" autofocus placeholder=" Input points " id="inputs" class="input">
+      <button class="btn" onclick="adds()">Add</button><button class="btn" onclick="subs()">Subtract</button>
+      </div>
+      </form>
+
+
+    <footer>
+    </footer> 
+    <button class="btn" style="height:50px; margin-top:14%" id="submit" onclick="SUBMIT()">Submit</button>
+    <button class ="btn"  style="height:50px; margin-top:14%" id="undo">Undo</button>
+
+
+  </body>
+  <script>
+    function pageLoad() {
+      
+    }
+    function addc() {
+      var inputc = document.getElementById("inputc").value;
+      document.getElementById("labelc").innerText = Number(document.getElementById("labelc").innerHTML) + Number(inputc);
+      event.preventDefault();
+    }
+  
+    function subc() {
+      var inputc = document.getElementById("inputc").value;
+      document.getElementById("labelc").innerText = Number(document.getElementById("labelc").innerHTML) - Number(inputc);
+      event.preventDefault();
+    }
+  
+  
+  
+    function addj() {
+      var inputj = document.getElementById("inputj").value;
+      document.getElementById("labelj").innerText = Number(document.getElementById("labelj").innerHTML) + Number(inputj);
+      event.preventDefault();
+    }
+  
+    function subj() {
+      var inputj = document.getElementById("inputj").value;
+      document.getElementById("labelj").innerText = Number(document.getElementById("labelj").innerHTML) - Number(inputj);
+      event.preventDefault();
+    }
+  
+  
+  
+  
+    function addp() {
+      var inputp = document.getElementById("inputp").value;
+      document.getElementById("labelp").innerText = Number(document.getElementById("labelp").innerHTML) + Number(inputp);
+      event.preventDefault();
+    }
+  
+    function subp() {
+      var inputp = document.getElementById("inputp").value;
+      document.getElementById("labelp").innerText = Number(document.getElementById("labelp").innerHTML) - Number(inputp);
+      event.preventDefault();
+    }
+  
+  
+  
+    function adds() {
+      var inputs = document.getElementById("inputs").value;
+      document.getElementById("labels").innerText = Number(document.getElementById("labels").innerHTML) + Number(inputs);
+      event.preventDefault();
+    }
+  
+    function subs() {
+      var inputs = document.getElementById("inputs").value;
+      document.getElementById("labels").innerText = Number(document.getElementById("labels").innerHTML) - Number(inputs);
+      event.preventDefault();
+    }
+
+    function SUBMIT() {
+      event.preventDefault();
+    }
+  </script>
+
+  <script type="module"> 
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-analytics.js";
+        import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField} from "https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBtd5TYoFScBhFWblbQh_SjdoNARWkxPlQ",
+          authDomain: "housepoints2-2bfc2.firebaseapp.com",
+          databaseURL: "https://housepoints2-2bfc2-default-rtdb.firebaseio.com",
+          projectId: "housepoints2-2bfc2",
+          storageBucket: "housepoints2-2bfc2.appspot.com",
+          messagingSenderId: "928638286633",
+          appId: "1:928638286633:web:2849e11218386847a7d538",
+          measurementId: "G-WNPF6JDHNY"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const db = getFirestore();
+
+        let sher = document.getElementById("labels");
+        let cheetah = document.getElementById("labelc");
+        let puma = document.getElementById("labelp");
+        let jaguar = document.getElementById("labelj");
+
+        let ogsher = sher.innerText;
+        let ogpuma = puma.innerText;
+        let ogjaguar = jaguar.innerText;
+        let ogcheetah = cheetah.innerText;
+
+        let BTN = document.getElementById("submit");
+        
+        let popSUBMIT = document.getElementById("submit2");
+        let popup = document.getElementById("popup");
+        let popupbackground = document.getElementById('popupbackground');
+
+        var remark = 1;
+
+        async function UpdateDocument() {
+          var ref = doc(db, "Points", "points101");
+
+          await updateDoc(
+              ref, {
+                  cheetah:cheetah.innerText, 
+                  sher:sher.innerText,
+                  jaguar:jaguar.innerText,
+                  puma:puma.innerText
+              }
+          )
+          .then(()=>{
+              alert("POINTS UPDATED SUCCESFULLY!");
+          })
+          .catch((error)=> {
+              alert("Unsuccessful", error);
+          })
+
+          document.getElementById("inputc").value="";
+          document.getElementById("inputs").value="";
+          document.getElementById("inputj").value="";
+          document.getElementById("inputp").value="";
+
+          var ref2 = doc(db, "Remarks", document.getElementById("subject").value);
+
+          await setDoc(
+              ref2, {
+                  Remark:document.getElementById("Remark").value
+              }
+          )
+          .then(()=>{
+              alert("Remark Saved");
+              popup.style.display='none';
+              popupbackground.style.display = 'none';
+          })
+          .catch((error)=> {
+              alert("Unsuccessful", error);
+          })
+
+          remark = remark+1;
+
+      }
+
+
+      function Reveal() {
+        popup.style.display='block';
+        popupbackground.style.display = 'block';
+      }
+
+      function ComeBack() {
+        popup.style.display='none';
+        popupbackground.style.display = 'none';
+        document.getElementById("Remark").value = "";
+      }
+
+      popupbackground.addEventListener('click', ComeBack);
+      BTN.addEventListener('click', Reveal);
+
+      popSUBMIT.addEventListener('click', UpdateDocument);
+
+      window.onload = async function GetData() {
+        var emaill = localStorage.getItem('email');
+
+        document.getElementById("Remark").value = "";
+
+        document.getElementById("pc").innerText = "";
+        document.getElementById("ps").innerText = "";
+        document.getElementById("pp").innerText = "";
+        document.getElementById("pj").innerText = "";
+
+        
+
+        var but = document.querySelectorAll('.btn');
+        var inputt = document.querySelectorAll('.input');
+        
+        if(emaill == "tsastry1111@gmail.com" || emaill == "joyeeta.adhikari@vidyavalley.com" || emaill == "tarunsastry8@gmail.com") {
+        but.forEach(btn => {
+          btn.style.display='block';
+        })
+    
+    
+        inputt.forEach(input => {
+          input.style.display= 'block';
+        })
+      }
+
+        var ref = doc(db, "Points", "points101");
+        const DocSnap = await getDoc(ref);
+
+        if(DocSnap.exists()) {
+          sher.innerText=DocSnap.data().sher;
+          jaguar.innerText=DocSnap.data().jaguar;
+          cheetah.innerText=DocSnap.data().cheetah;
+          puma.innerText=DocSnap.data().puma;
+        }
+      }
+
+      
+
+  </script>
+
+  
+</html>
