@@ -25,7 +25,7 @@
             </div>
             <button class="form__button" type="button" id="login">Continue</button>
             <p class="form_text">
-                <a class="form_text" href="HouseMain.html" id="linkHousepoints" style="padding-left:30%">Go back to home page</a>
+                <a class="form_text" href="index.html" id="linkHousepoints" style="padding-left:30%">Go back to home page</a>
             </p>
 
 
@@ -73,7 +73,7 @@
                 document.getElementById("logout").addEventListener('click', function() {
                     alert("Logged out Succesfully");
                     localStorage.setItem('email', "wrong");
-                    location.replace("HouseMain.html");
+                    location.replace("index.html");
                 })
         
                 document.getElementById("login").addEventListener("click", function() {
@@ -87,7 +87,7 @@
                       const user = userCredential.user;
                       console.log(user);
                       alert(user.email+" Login successfully!!!");
-                      location.replace("HouseMain.html");
+                      location.replace("index.html");
 
                       // ...
                     })
