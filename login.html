@@ -71,9 +71,15 @@
                 console.log(app);
 
                 document.getElementById("logout").addEventListener('click', function() {
+                    const emaill = localStorage.getItem('email');
+                    if(emaill!="wrong") {
                     alert("Logged out Succesfully");
                     localStorage.setItem('email', "wrong");
                     location.replace("index.html");
+                    }
+                    else {
+                        alert("You are not logged in")
+                    }
                 })
         
                 document.getElementById("login").addEventListener("click", function() {

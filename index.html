@@ -21,8 +21,27 @@
   <div class="popupbackground" id="popupbackground">
   </div>
   <div class="popup" id="popup">
-    <h2>Enter Reasoning</p>
-      <input id="subject" class="input" autofocus placeholder="Subject" style="width:310px; margin:5px; border-radius:5px; margin-left:11%">
+    <h2>Enter Remark</p>
+      <input id="name" class="input" autofocus placeholder="Name" style="width:310px; margin:5px; border-radius:5px; margin-left:11%">
+      <select id="class" autofocus placeholder="Class">
+        <option>6A</option>
+        <option>6B</option>
+        <option>6C</option>
+        <option>6D</option>
+        <option>7A</option>
+        <option>7B</option>
+        <option>7C</option>
+        <option>8A</option>
+        <option>8B</option>
+        <option>8C</option>
+        <option>9A</option>
+        <option>9B</option>
+        <option>9C</option>
+        <option>10A</option>
+        <option>10B</option>
+        <option>10C</option>
+      </select>
+      <br>
       <textarea name="text" rows="14" cols="10" wrap="soft" autofocus placeholder=" Enter Remark" id="Remark"> </textarea>
       <br>
     <button class="submit2" id="submit2">Submit</button>
@@ -209,6 +228,31 @@
         let puma = document.getElementById("labelp");
         let jaguar = document.getElementById("labelj");
 
+
+
+        let today = new Date();
+    
+
+        let month = today.getMonth() + 1;
+        let year = today.getFullYear();
+        let date = today.getDate();
+
+        let current_date = `${month}/${date}/${year}`;
+
+        // output.innerText = current_date;
+        let hours = addZero(today.getHours());
+        let minutes = addZero(today.getMinutes());
+
+        let current_time = `${hours}:${minutes}`;
+
+        let Meow = date+"/"+month+"/"+year+"  "+hours+":"+minutes;
+
+        function addZero(num){
+          return num < 10 ? `0${num}`:num;
+        }
+
+
+
         let ogsher = sher.innerText;
         let ogpuma = puma.innerText;
         let ogjaguar = jaguar.innerText;
@@ -220,10 +264,19 @@
         let popup = document.getElementById("popup");
         let popupbackground = document.getElementById('popupbackground');
 
-        var remark = 1;
+        let tname = document.getElementById("name");
 
         async function UpdateDocument() {
           var ref = doc(db, "Points", "points101");
+
+          const DocSnap = await getDoc(ref);
+
+          if(DocSnap.exists()) {
+            var changeS = sher.innerText-DocSnap.data().sher;
+            var changeJ = jaguar.innerText-DocSnap.data().jaguar;
+            var changeP = puma.innerText-DocSnap.data().puma;
+            var changeC = cheetah.innerText-DocSnap.data().cheetah;
+          }
 
           await updateDoc(
               ref, {
@@ -245,11 +298,18 @@
           document.getElementById("inputj").value="";
           document.getElementById("inputp").value="";
 
-          var ref2 = doc(db, "Remarks", document.getElementById("subject").value);
+          var ref2 = collection(db, "Remarks");
 
-          await setDoc(
+          await addDoc(
               ref2, {
-                  Remark:document.getElementById("Remark").value
+                  Time:Meow,
+                  Name:tname.value,
+                  Section:document.getElementById("class").value,
+                  Remark:document.getElementById("Remark").value,
+                  Change_in_sher_points:changeS,
+                  Change_in_jaguar_points:changeJ,
+                  Change_in_cheetah_points:changeC,
+                  Change_in_puma_points:changeP
               }
           )
           .then(()=>{
@@ -260,8 +320,6 @@
           .catch((error)=> {
               alert("Unsuccessful", error);
           })
-
-          remark = remark+1;
 
       }
 
@@ -322,6 +380,5 @@
       
 
   </script>
-
-  
+ 
 </html>
